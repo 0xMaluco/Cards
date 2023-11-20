@@ -14,11 +14,15 @@ import java.io.IOException;
 public class App extends Application {
 
     private static Scene scene;
+    private int width = 600;
+    private int height = 600;
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("primary"), 640, 480);
+        scene = new Scene(loadFXML("home"), width, height);
         stage.setScene(scene);
+        stage.setTitle("Cards");
+        stage.setResizable(false);
         stage.show();
     }
 
@@ -26,7 +30,7 @@ public class App extends Application {
         scene.setRoot(loadFXML(fxml));
     }
 
-    private static Parent loadFXML(String fxml) throws IOException {
+    public static Parent loadFXML(String fxml) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
         return fxmlLoader.load();
     }

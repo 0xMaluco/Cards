@@ -13,6 +13,8 @@ import java.io.IOException;
  */
 public class App extends Application {
 
+    public static Deck deck = new Deck();
+
     private static Scene scene;
     private int width = 600;
     private int height = 600;

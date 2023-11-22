@@ -1,29 +1,35 @@
 package br.gm325.cards;
 
+import br.gm325.cards.model.Deck;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import javafx.event.ActionEvent;
 
 /**
  * JavaFX App
  */
 public class App extends Application {
 
+    public static Deck deck = new Deck();
+    public static String fxml;
     private static Scene scene;
     private int width = 600;
     private int height = 600;
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("home"), width, height);
+        scene = new Scene(loadFXML("fristOpen"), width, height);
         stage.setScene(scene);
         stage.setTitle("Cards");
         stage.setResizable(false);
         stage.show();
+
     }
 
     static void setRoot(String fxml) throws IOException {

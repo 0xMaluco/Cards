@@ -2,19 +2,19 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package br.gm325.cards;
+package br.gm325.cards.model;
 
 /**
  *
  * @author Admin
  */
-public class Carta {
+public class Card {
     private String pergunta;
     private String resposta;
 
-    public Carta(){}
+    public Card(){}
 
-    public Carta(String pergunta, String resposta) {
+    public Card(String pergunta, String resposta) {
         this.pergunta = pergunta;
         this.resposta = resposta;
     }

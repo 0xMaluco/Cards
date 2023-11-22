@@ -42,6 +42,11 @@ public class HomeController {
     private Text cardsNum;
 
     @FXML
+    public void initialize() {
+        cardsNum.setText("You have " + String.valueOf(deck.size()) + " cards.");
+    }
+
+    @FXML
     void add(ActionEvent event) throws IOException {
         addCardToDeck(event);
         if (isAdded) {
@@ -67,6 +72,7 @@ public class HomeController {
 
         if (deck.size() > 1) {
             selectDificulty(event);
+            changeScene(event, "play.fxml");
 
         } else {
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -177,6 +183,7 @@ public class HomeController {
 
         removeButton.setOnAction((ActionEvent event) -> {
             deck.remove(questionTextField.getText(), answerTextField.getText());
+            deck.removeFromShuffled(questionTextField.getText(), answerTextField.getText());
             System.out.println(deck.size());
             isRemoved = true;
 
@@ -185,6 +192,7 @@ public class HomeController {
         });
 
         removeAllButton.setOnAction((ActionEvent event) -> {
+            deck.clearShuffled();
             deck.removeAll();
             System.out.println(deck.size());
             isRemoved = true;

@@ -29,6 +29,7 @@ public class App extends Application {
         stage.setTitle("Cards");
         stage.setResizable(false);
         stage.show();
+
     }
 
     static void setRoot(String fxml) throws IOException {

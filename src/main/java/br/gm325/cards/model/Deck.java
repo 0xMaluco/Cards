@@ -7,6 +7,7 @@ import java.util.Iterator;
 
 public class Deck {
     private ArrayList<Card> cartas = new ArrayList<Card>();
+    private ArrayList<Card> cartasEasy = new ArrayList<Card>();
     private ArrayList<Card> cartasShuffle = new ArrayList<Card>();
    private boolean shuffled = false;
    
@@ -23,6 +24,18 @@ public class Deck {
 
     public void setDificuldade(int dificuldade) {
         this.dificuldade = dificuldade;
+        if (dificuldade == 0 || dificuldade == 1) {
+            cartasEasy.clear();
+            cartasEasy.addAll(cartas);
+            cartas.clear();
+            cartas.addAll(cartasEasy);
+        } else {
+            cartasEasy.clear();
+            cartasEasy.addAll(cartas);
+            this.shuffle();
+            cartas.clear();
+            cartas.addAll(cartasShuffle);
+        }
     }
 
     public void add(String pergunta, String resposta){
@@ -40,6 +53,19 @@ public class Deck {
 
     public void remove(String questionTextField, String answerTextField) {
         Iterator<Card> iterator = cartas.iterator();
+
+        while (iterator.hasNext()) {
+            Card card = iterator.next();
+
+            if (card.getPergunta().equals(questionTextField) && card.getResposta().equals(answerTextField)) {
+                iterator.remove();
+                break;
+            }
+        }
+    }
+
+    public void removeFromShuffled(String questionTextField, String answerTextField) {
+        Iterator<Card> iterator = cartasShuffle.iterator();
 
         while (iterator.hasNext()) {
             Card card = iterator.next();
@@ -76,16 +102,16 @@ public class Deck {
        
     }
     
-    public void shuffleClear(){
-        if(cartasShuffle.size() > cartas.size()){
+    // public void shuffleClear(){
+    // if(cartasShuffle.size() > cartas.size()){
    
-        for(int i = cartasShuffle.size(); i > cartas.size(); i++){
-            cartasShuffle.remove(i);
-            }
-        }
+    // for(int i = cartasShuffle.size(); i > cartas.size(); i++){
+    // cartasShuffle.remove(i);
+    // }
+    // }
         
-        shuffled = false;
-    }
+    // shuffled = false;
+    // }
     
     public void clearShuffled(){
         cartasShuffle.clear();

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/21" fx:controller="br.gm325.cards.FristOpenController">
+   <children>
+      <Text layoutX="37.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cards">
+         <font>
+            <Font name="System Bold" size="42.0" />
+         </font>
+      </Text>
+      <Text fill="#0000006c" layoutX="37.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome to ">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text fill="#000000c0" layoutX="37.0" layoutY="131.0" strokeType="OUTSIDE" strokeWidth="0.0" text="A flashcard app designed to help users study." wrappingWidth="321.1845703125" />
+      <Line endX="513.5" layoutX="99.0" layoutY="156.0" startX="-100.0" />
+      <Text fill="#00000093" layoutX="233.0" layoutY="564.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Developed by Gabriel Miguel" />
+      <Button fx:id="addFristCardButton" layoutX="162.0" layoutY="300.0" mnemonicParsing="false" onAction="#addFristCardAction" prefHeight="79.0" prefWidth="329.0" text="Add your frist card" />
+      <Button fx:id="importDeckButton" disable="true" layoutX="233.0" layoutY="389.0" mnemonicParsing="false" onAction="#importDeckAction" prefHeight="37.0" prefWidth="188.0" text="Import an existing deck" />
+      <Text fill="#00000093" layoutX="213.0" layoutY="281.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Click on a button for the frist setup" />
+   </children>
+</AnchorPane>

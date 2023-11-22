@@ -1,4 +1,4 @@
-package br.gm325.cards;
+package br.gm325.cards.model;
 import java.util.ArrayList;
 import java.util.Collections;
 

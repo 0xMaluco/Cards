@@ -68,7 +68,7 @@ public class PlayController {
     @FXML
     void next(ActionEvent event) throws IOException {
 
-        if (page + 1 == deck.size()) {
+        if (page == deck.size()) {
             changeScene(event, "finish.fxml");
         }
 

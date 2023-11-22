@@ -1,11 +1,13 @@
 package br.gm325.cards.model;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
+import java.util.Iterator;
 
 
 public class Deck {
-   private ArrayList <Carta> cartas = new ArrayList<Carta>();
-   private ArrayList <Carta> cartasShuffle = new ArrayList<Carta>();
+    private ArrayList<Card> cartas = new ArrayList<Card>();
+    private ArrayList<Card> cartasShuffle = new ArrayList<Card>();
    private boolean shuffled = false;
    
    private int dificuldade = 0;
@@ -24,15 +26,29 @@ public class Deck {
     }
 
     public void add(String pergunta, String resposta){
-        Carta carta = new Carta(pergunta, resposta);
-        cartas.add(carta);
-    }
-    public void add(Carta carta){
+        Card carta = new Card(pergunta, resposta);
         cartas.add(carta);
     }
 
-    public void remove(Carta carta){
+    public void add(Card carta) {
+        cartas.add(carta);
+    }
+
+    public void remove(Card carta) {
         cartas.remove(carta);
+    }
+
+    public void remove(String questionTextField, String answerTextField) {
+        Iterator<Card> iterator = cartas.iterator();
+
+        while (iterator.hasNext()) {
+            Card card = iterator.next();
+
+            if (card.getPergunta().equals(questionTextField) && card.getResposta().equals(answerTextField)) {
+                iterator.remove();
+                break;
+            }
+        }
     }
 
     public void remove(int index){
@@ -44,7 +60,7 @@ public class Deck {
     }
     
     
-    public int getIndex(Carta carta){
+    public int getIndex(Card carta) {
         return cartas.indexOf(carta);
     }
 
@@ -54,7 +70,7 @@ public class Deck {
 
     
     public void shuffle(){
-       cartasShuffle = (ArrayList<Carta>) cartas.clone();
+        cartasShuffle = (ArrayList<Card>) cartas.clone();
        Collections.shuffle(cartasShuffle);
        shuffled = true;
        

@@ -40,15 +40,35 @@ public class PlayController {
 
     @FXML
     void back(ActionEvent event) {
-        if (index >= 0) {
-        } else {
+
+        System.out.println("page: " + page);
+        System.out.println("index: " + index);
+
+        if (index >= 1) {
+            page--;
             index--;
+            allReadyShowQuestion = !allReadyShowQuestion;
+
+            if (allReadyShowQuestion) {
+                backButton.setDisable(false);
+                changeText.setText(deck.getPergunta(page));
+                numberText.setText(page + " / " + deck.size());
+            } else {
+                backButton.setDisable(false);
+                changeText.setText(deck.getResposta(index));
+                numberText.setText((page + 1) + " / " + deck.size());
+            }
+        } else if (index < 0) {
             backButton.setDisable(true);
         }
     }
 
     @FXML
     public void initialize() {
+
+        System.out.println("page: " + page);
+        System.out.println("index: " + index);
+
         tipText.setText("Number of Cards");
         numberText.setText(page + " / " + deck.size());
 
@@ -57,7 +77,7 @@ public class PlayController {
 
         allReadyShowQuestion = true;
 
-        backButton.setDisable(false);
+        backButton.setDisable(true);
     }
 
     @FXML
@@ -67,6 +87,8 @@ public class PlayController {
 
     @FXML
     void next(ActionEvent event) throws IOException {
+        System.out.println("page: " + page);
+        System.out.println("index: " + index);
 
         if (page == deck.size()) {
             changeScene(event, "finish.fxml");

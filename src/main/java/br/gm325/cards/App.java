@@ -24,7 +24,12 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("fristOpen"), width, height);
+        scene = new Scene(loadFXML("home"), width, height);
+
+        for (int i = 0; i < 2; i++) {
+            deck.add("Pergunta " + i, "Resposta " + i);
+        }
+
         stage.setScene(scene);
         stage.setTitle("Cards");
         stage.setResizable(false);

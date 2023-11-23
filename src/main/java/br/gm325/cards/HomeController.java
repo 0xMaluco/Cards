@@ -107,7 +107,7 @@ public class HomeController {
 
         RadioButton hard = new RadioButton("Hard");
         hard.setToggleGroup(group);
-
+        hard.disableProperty().setValue(true);
         Button confirmButton = new Button("Confirm");
 
         confirmButton.setOnAction((ActionEvent event) -> {
